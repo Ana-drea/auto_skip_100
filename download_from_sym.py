@@ -25,9 +25,9 @@ def go_to_Sym(sym_path):
     options.add_argument('--ignore-ssl-errors')
     driver_path = r'chromedriver.exe'
     wd = webdriver.Chrome(service=Service(driver_path), options=options)
-    # go to ADSK_Simulation_FY23
+    # go to Symfonie
     wd.get(sym_path)
-    time.sleep(20)
+    time.sleep(80)
     element = wd.find_element(by=By.XPATH, value='//*[@id="handoffTitleName"]')
     # get the name of the Sym job, which will also be the name of downloaded zip file
     project_name = element.text
@@ -37,11 +37,11 @@ def go_to_Sym(sym_path):
     # click "download only folders"
     element = wd.find_element(by=By.XPATH, value='//*[@id="jobAttachmentsTable"]/div[1]/div[3]/button[2]')
     element.click()
-    time.sleep(1)
+    time.sleep(5)
     # download folders to put csv files
     element = wd.find_element(by=By.XPATH, value='//*[@id="jobAttachmentsTable"]/div[2]/div/div[2]/div[2]/div[2]')
     element.click()
-    time.sleep(1)
+    time.sleep(5)
     element = wd.find_element(by=By.XPATH,
                               value='//*[@id="jobAttachmentsTable"]/div[2]/div/div[2]/div[3]/div[2]/div[1]/div[2]')
     element.click()
